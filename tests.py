@@ -104,3 +104,25 @@ def test_generate_choice_id_increments():
     c1 = q.add_choice("A")
     c2 = q.add_choice("B")
     assert c2.id == c1.id + 1
+
+import pytest
+from model import Question
+
+@pytest.fixture
+def question_with_choices():
+    question = Question(title="Sample Question", max_selections=2)
+    question.add_choice("Choice 1", True)
+    question.add_choice("Choice 2", False)
+    question.add_choice("Choice 3", True)
+    return question
+
+def test_create_choice_with_empty_text():
+    question = Question(title="Sample Question", max_selections=2)
+    with pytest.raises(Exception):
+        question.add_choice("", False)
+
+def test_set_correct_choices_updates_is_correct(question_with_choices):
+    question_with_choices.set_correct_choices([question_with_choices.choices[0].id, question_with_choices.choices[2].id])
+    assert question_with_choices.choices[0].is_correct is True
+    assert question_with_choices.choices[1].is_correct is False
+    assert question_with_choices.choices[2].is_correct is True
