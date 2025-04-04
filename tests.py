@@ -105,9 +105,6 @@ def test_generate_choice_id_increments():
     c2 = q.add_choice("B")
     assert c2.id == c1.id + 1
 
-import pytest
-from model import Question
-
 @pytest.fixture
 def question_with_choices():
     question = Question(title="Sample Question", max_selections=2)
