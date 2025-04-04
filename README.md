@@ -43,7 +43,7 @@ Primeiramente, crie um fork deste repositório.
 Para isso, basta clicar no botão `Fork` no canto superior direito.
 Caso tenha dúvidas, verifique a documentação do GitHub sobre como [criar fork de um repositório](https://docs.github.com/pt/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
 
-### Ative o GitHub Actions para rodar os testes a cada commit
+### Ative o GitHub Actions para rodar os testes a cada commit (ativado)
 
 Neste projeto, utilizamos o GitHub Actions (ferramenta de CI/CD do GitHub) para executar os testes automaticamente a cada commit.
 Abra o arquivo`.github/workflows/tests.yml` e observe que os testes são executados em três sistemas operacionais (Ubuntu, macOS e Windows) e várias versões da linguagem Python. Veja um exemplo em https://github.com/andrehora/quiz/actions/runs/14231638679.
